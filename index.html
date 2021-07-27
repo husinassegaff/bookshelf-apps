@@ -1,87 +1,88 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bookshelf Apps</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+<!-- Untuk menjalankannya harap dibaca Readme.md terlebih dahulu -->
+
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bookshelf Apps</title>
+		<link rel="stylesheet" href="index.css">
+		<link rel="index" type="html" href="index.html">
+	</head>
 <body>
-<header class="head_bar">
-    <h1 class="head_bar__title">Bookshelf Apps</h1>
-</header>
-<main>
-    <section class="input_section">
-        <h2>Masukkan Buku Baru</h2>
-        <form id="inputBook">
-            <div class="input">
-                <label for="inputBookTitle">Judul</label>
-                <input id="inputBookTitle" type="text" required>
-            </div>
-            <div class="input">
-                <label for="inputBookAuthor">Penulis</label>
-                <input id="inputBookAuthor" type="text" required>
-            </div>
-            <div class="input">
-                <label for="inputBookYear">Tahun</label>
-                <input id="inputBookYear" type="number" required>
-            </div>
-            <div class="input_inline">
-                <label for="inputBookIsComplete">Selesai dibaca</label>
-                <input id="inputBookIsComplete" type="checkbox">
-            </div>
-            <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
-        </form>
-    </section>
+	<header>
+		<div class="header-wrap">
+			<h1><span>Bookshelf Apps</span></h1>
+		</div>
+	</header>
 
-    <section class="search_section">
-        <h2>Cari Buku (Opsional)</h2>
-        <form id="searchBook">
-            <label for="searchBookTitle">Judul</label>
-            <input id="searchBookTitle" type="text">
-            <button id="searchSubmit" type="submit">Cari</button>
-        </form>
-    </section>
+	<main>
+		<div id="content">
+			<article class="content-w1">
+				<section class="input_section" id="inputSection">
+					<h2 id="h2InputSection">Masukkan Buku Baru</h2><br><hr>
+					<form id="inputBook">
+						<div class="input" id="sectionTitle">
+							<label for="inputBookTitle">Judul</label>
+							<input id="inputBookTitle" type="text" placeholder="Masukkan judul buku"/>
+							<small class="error-display" id="errorTitle">Wajib Diisi</small>
+						</div>
+						<div class="input" id="sectionAuthor">
+							<label for="inputBookAuthor">Penulis</label>
+							<input id="inputBookAuthor" type="text" placeholder="Masukkan nama penulis buku"/>
+							<small class="error-display" id="errorAuthor">Wajib Diisi</small>
+						</div>
+						<div class="input" id="sectionYear">
+							<label for="inputBookYear">Tahun</label>
+							<input id="inputBookYear" type="number" placeholder="Masukkan tahun terbit buku"/>
+							<small class="error-display" id="errorYear">Wajib Diisi</small>
+						</div>
+						<div class="input_inline">
+							<label for="inputBookIsComplete">Selesai dibaca</label>
+							<input id="inputBookIsComplete" type="checkbox" />
+						</div>
+						<button id="bookSubmit" type="button"><span>Masukkan Buku</span></button>
+					</form>
+				</section>
+			</article>
+		
+			<article class="content-w2">
+				<section class="book_shelf" id="bookShelfUncompleted">
+					<h2 id="uncompletedH2">Belum Selesai Dibaca</h2><br><hr>
+				
+					<div id="incompleteBookshelfList" class="book_list"></div>
+				</section>
+			</article>
+		</div>
+			
+		<aside>
+			<article class="content-aw1">
+				<section class="search_section book_shelf" id="searchSection">
+					<h2 id="searchSectionH2">Cari Buku</h2><br><hr>
+					<form id="searchBook">
+						<label for="searchBookTitle">Kata Kunci</label>
+						<input id="searchBookTitle" type="text" placeholder="Cari buku"/>
+						<button id="searchSubmit" type="submit"><span>Cari</span></button>
+					</form>
+				
+					<div id="searchResult" class="book_list" style="width: 100%"></div>
+				</section>
+			</article>
+			<article class="content-aw2">
+				<section class="book_shelf" id="bookShelfCompleted">
+					<h2 id="completedH2">Selesai Dibaca</h2><br><hr>
+					<div id="completeBookshelfList" class="book_list"></div>
+				</section>
+			</article>
+		</aside>
+	</main>
 
-    <section class="book_shelf">
-        <h2>Belum selesai dibaca</h2>
+	<footer>
+		<p>Final Project Dicoding - Belajar Membuat Front-End Web untuk Pemula</p>
+	</footer>
 
-        <div id="incompleteBookshelfList" class="book_list">
-            <!--            <article class="book_item">-->
-            <!--                <h3>Book Title</h3>-->
-            <!--                <p>Penulis: John Doe</p>-->
-            <!--                <p>Tahun: 2002</p>-->
-
-            <!--                <div class="action">-->
-            <!--                    <button class="green">Selesai dibaca</button>-->
-            <!--                    <button class="red">Hapus buku</button>-->
-            <!--                </div>-->
-            <!--            </article>-->
-        </div>
-    </section>
-
-    <section class="book_shelf">
-        <h2>Selesai dibaca</h2>
-
-        <div id="completeBookshelfList" class="book_list">
-            <!--            <article class="book_item">-->
-            <!--                <h3>Book Title</h3>-->
-            <!--                <p>Penulis: John Doe</p>-->
-            <!--                <p>Tahun: 2002</p>-->
-
-            <!--                <div class="action">-->
-            <!--                    <button class="green">Belum selesai di Baca</button>-->
-            <!--                    <button class="red">Hapus buku</button>-->
-            <!--                </div>-->
-            <!--            </article>-->
-        </div>
-    </section>
-</main>
-
-<script src="main.js"></script>
+	<script src="main.js"></script>
+	<script src="createReadDeleteBook.js"></script>
+	<script src="searchBook.js"></script>
+	<script src="swapBook.js"></script>
 </body>
 </html>
